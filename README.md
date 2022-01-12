@@ -26,4 +26,5 @@ A simple event CRUD operations app with authentication for demonstration purpose
 ## Demo User Login details
 
 - email: demo@mdo.com,
+- 
   password: 123456

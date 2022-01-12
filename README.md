@@ -1,6 +1,6 @@
 ## Project Title:
 
-My Demo
+Demo project to perform CRUD operations.
 
 ## Description
 

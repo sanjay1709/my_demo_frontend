@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
 import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import EventDelete from "./EventDelete";
 import { Card, CardBody } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export function EventCard({ eventsView, showEditEventModal }) {
   const [showModal, setShowModal] = useState(false);
@@ -38,13 +38,13 @@ export function EventCard({ eventsView, showEditEventModal }) {
             aria-label="edit"
             onClick={() => handleEventEdit(eventsView)}
           >
-            <EditIcon />
+            <FontAwesomeIcon icon={faEdit} />
           </IconButton>
           <IconButton
             aria-label="delete"
             onClick={() => handleEventDelete(eventsView)}
           >
-            <DeleteIcon />
+            <FontAwesomeIcon icon={faTrash} />
           </IconButton>
         </CardActions>
       </Card>

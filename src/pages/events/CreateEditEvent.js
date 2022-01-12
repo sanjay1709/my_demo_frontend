@@ -15,8 +15,6 @@ import {
   CardBody,
   CardTitle,
   FormGroup,
-  Form,
-  Input,
   Row,
   Col,
 } from "reactstrap";
@@ -87,7 +85,7 @@ function CreateEditEvent({ closeCreateEdit, editDatas, editMode }) {
       values[0]["organizer"] = editDatas.organizer;
       setAddEventField(values);
     }
-  }, [editMode]);
+  }, [editMode, editDatas, eventFields]);
 
   const [updateEvent] = useMutation(UPDATE_EVENT, {
     refetchQueries: [

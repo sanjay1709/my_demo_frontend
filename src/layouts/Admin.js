@@ -1,9 +1,7 @@
 import React from "react";
-// javascript plugin used to create scrollbars on windows
 import { Route, Switch, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Sidebar from "components/Sidebar/Sidebar.js";
-// import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
 
@@ -26,12 +24,7 @@ function Dashboard(props) {
     mainPanel.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
   }, [location]);
-  // const handleActiveClick = (color) => {
-  //   setActiveColor(color);
-  // };
-  // const handleBgClick = (color) => {
-  //   setBackgroundColor(color);
-  // };
+
   return (
     <div className="wrapper">
       <ToastContainer
@@ -59,12 +52,6 @@ function Dashboard(props) {
           })}
         </Switch>
       </div>
-      {/* <FixedPlugin
-        bgColor={backgroundColor}
-        activeColor={activeColor}
-        handleActiveClick={handleActiveClick}
-        handleBgClick={handleBgClick}
-      /> */}
     </div>
   );
 }

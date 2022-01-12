@@ -16,8 +16,11 @@ A simple event CRUD operations app with authentication for demonstration purpose
 ## Setup / Installation:
 
 `git clone https://github.com/sanjay1709/my_demo_frontend.git`
+
 `cd my_demo_frontend`
+
 `npm install`
+
 `npm start` (Make sure that the backend is running before this step)
 
 ## Demo User Login details

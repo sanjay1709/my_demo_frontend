@@ -19,7 +19,7 @@ A simple event CRUD operations app with authentication for demonstration purpose
 - Once downloaded, open the project folder in VS Code and then change directory to the root (Along with backend folder).
 - Open the terminal and run :
   - cd my_demo_frontend
-  - npm install
+  - npm install (Kindly note that it will take 3-5 minutes)
   - npm start (Make sure that the backend is running before this step)
   - Type y to run the project in another port when asked
 

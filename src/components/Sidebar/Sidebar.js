@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Nav } from "reactstrap";
 // javascript plugin used to create scrollbars on windows
-import PerfectScrollbar from "perfect-scrollbar";
 
 import logo from "logo.svg";
 
@@ -16,10 +15,6 @@ function Sidebar(props) {
   };
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(sidebar.current, {
-        suppressScrollX: true,
-        suppressScrollY: false,
-      });
     }
     return function cleanup() {
       if (navigator.platform.indexOf("Win") > -1) {

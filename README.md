@@ -13,7 +13,7 @@ A simple event CRUD operations app with authentication for demonstration purpose
 - Materialize
 - Reactstrap
 
-## Setup / Installation: 💻
+## Setup / Installation:
 
 `git clone https://github.com/sanjay1709/my_demo_frontend.git`
 `cd my_demo_frontend`

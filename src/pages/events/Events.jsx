@@ -18,7 +18,8 @@ import {
   SvgIcon,
   Typography,
 } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function Events() {
   const [eventDatas, setEventDatas] = useState([]);
@@ -127,7 +128,7 @@ function Events() {
                           startAdornment: (
                             <InputAdornment position="start">
                               <SvgIcon fontSize="small" color="action">
-                                <SearchIcon />
+                                <FontAwesomeIcon icon={faSearch} />
                               </SvgIcon>
                             </InputAdornment>
                           ),

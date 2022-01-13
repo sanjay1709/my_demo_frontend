@@ -78,14 +78,14 @@ function CreateEditEvent({ closeCreateEdit, editDatas, editMode }) {
   //initialize values for Save and Update
   useEffect(() => {
     if (editMode) {
-      const values = [...eventFields];
+      const values = [{ name: "", date: "", description: "", organizer: "" }];
       values[0]["name"] = editDatas.name;
       values[0]["date"] = editDatas.date;
       values[0]["description"] = editDatas.description;
       values[0]["organizer"] = editDatas.organizer;
       setAddEventField(values);
     }
-  }, [editMode, editDatas, eventFields]);
+  }, [editMode, editDatas]);
 
   const [updateEvent] = useMutation(UPDATE_EVENT, {
     refetchQueries: [

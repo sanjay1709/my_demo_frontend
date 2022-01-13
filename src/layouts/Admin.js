@@ -5,21 +5,11 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 
 import routes from "routes.js";
 
-var ps;
-
 function Dashboard(props) {
   const [activeColor] = React.useState("info");
   const mainPanel = React.useRef();
   const location = useLocation();
-  React.useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
-    }
-    return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-      }
-    };
-  });
+
   React.useEffect(() => {
     mainPanel.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;

@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 import moment from "moment";
 import { DatePickerInput } from "rc-datepicker";
 import "rc-datepicker/lib/style.css";
-import { AvForm, AvField } from "availity-reactstrap-validation";
 
 import {
   Card,
@@ -17,13 +16,16 @@ import {
   FormGroup,
   Row,
   Col,
+  Form,
+  Input,
+  Label,
 } from "reactstrap";
 
 function CreateEditEvent({ closeCreateEdit, editDatas, editMode }) {
   const [eventFields, setAddEventField] = useState([
     { name: "", date: "", description: "", organizer: "" },
   ]);
-
+  const [errors, setErrors] = useState();
   const handleCancel = () => {
     closeCreateEdit();
   };
@@ -68,7 +70,11 @@ function CreateEditEvent({ closeCreateEdit, editDatas, editMode }) {
       },
     ],
     onCompleted: (data) => {
-      closeCreateEdit();
+      if (data.addEvent.status === false) {
+        setErrors(data.addEvent.msg);
+      } else {
+        closeCreateEdit();
+      }
     },
     onError: (error) => {
       toast.error("Error: " + error.message);
@@ -94,8 +100,12 @@ function CreateEditEvent({ closeCreateEdit, editDatas, editMode }) {
       },
     ],
     onCompleted: (data) => {
-      closeCreateEdit();
-      toast.success("Event Updated");
+      if (data.updateEvent.status === false) {
+        setErrors(data.updateEvent.msg);
+      } else {
+        closeCreateEdit();
+        toast.success("Event Updated");
+      }
     },
     onError: (error) => {
       toast.error("Event not updated -" + error.message);
@@ -110,18 +120,20 @@ function CreateEditEvent({ closeCreateEdit, editDatas, editMode }) {
             <CardTitle tag="h5">Edit Event</CardTitle>
           </CardHeader>
           <CardBody>
-            <AvForm>
+            <Form>
               <Row>
                 <Col md="6">
                   <FormGroup>
                     <label>Event Name</label>
-                    <AvField
+                    <Input
                       type="text"
                       name="name"
                       value={eventFields[0].name}
                       onChange={(event) => handleInputChange(event)}
-                      required
                     />
+                    <Label>
+                      {errors && errors.name ? errors.name.message : null}
+                    </Label>
                   </FormGroup>
                 </Col>
                 <Col className="pr-1" md="6">
@@ -131,8 +143,10 @@ function CreateEditEvent({ closeCreateEdit, editDatas, editMode }) {
                       onChange={(event) => setDateValue(event)}
                       value={eventFields[0].date}
                       className="my-custom-datepicker-component"
-                      required
                     />
+                    <Label>
+                      {errors && errors.date ? errors.date.message : null}
+                    </Label>
                   </FormGroup>
                 </Col>
               </Row>
@@ -140,25 +154,31 @@ function CreateEditEvent({ closeCreateEdit, editDatas, editMode }) {
                 <Col md="6">
                   <FormGroup>
                     <label>Organizer</label>
-                    <AvField
-                      placeholder="Organizer"
+                    <Input
                       value={eventFields[0].organizer}
                       name="organizer"
                       onChange={(event) => handleInputChange(event)}
-                      required
                     />
+                    <Label>
+                      {errors && errors.organizer
+                        ? errors.organizer.message
+                        : null}
+                    </Label>
                   </FormGroup>
                 </Col>
                 <Col className="pr-1" md="6">
                   <FormGroup>
                     <label>Description</label>
-                    <AvField
-                      placeholder="Description"
+                    <Input
                       value={eventFields[0].description}
                       name="description"
                       onChange={(event) => handleInputChange(event)}
-                      required
                     />
+                    <Label>
+                      {errors && errors.description
+                        ? errors.description.message
+                        : null}
+                    </Label>
                   </FormGroup>
                 </Col>
               </Row>
@@ -182,7 +202,7 @@ function CreateEditEvent({ closeCreateEdit, editDatas, editMode }) {
                   </Button>
                 </div>
               </Row>
-            </AvForm>
+            </Form>
           </CardBody>
         </Card>
       </Col>
